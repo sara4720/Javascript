@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>4-1</title>
+    <script src="./js/Account.js"></script>
+</head>
+<body>
+    <h3>4-1. 자바스크립트 객체</h3>
+    <script>
+        // 객체생성
+        var kb = new Account('국민은행','102-111-2356','홍길동',10000);
+        kb.deposit(5000);
+        kb.withdraw(7000);
+        kb.show();
+
+        var wr = new Account('우리은행','102-111-5689','김춘추',18000);
+        wr.deposit(5000);
+        wr.withdraw(7000);
+        wr.show();
+
+        // JSON(JavaScript Object Notation) - 자바스크립트 객체 표기법
+        var nh = {
+            // 멤버변수
+            'bank' : '농협은행',
+            'id' : '108-456-8989',
+            'name' : '이순신',
+            'money' : 10000,
+
+            // 멤버함수
+            'deposit' : function(_money){
+                this.money += _money;
+            },
+            'withdraw' : function(_money){
+                this.money -+ _money;
+            },
+            'show' : function(){
+                document.write('---------------------------<br />');
+                document.write('은행명 : '+this.bank+'<br />');
+                document.write('계좌번호 : '+this.id+'<br />');
+                document.write('입금주 : '+this.name+'<br />');
+                document.write('현재잔액 : '+this.money+'<br />');
+                document.write('---------------------------<br />');
+            }
+        };
+
+        nh.deposit(10000);
+        nh.withdraw(6000);
+        nh.show();
+
+        // JSON 객체 - 이기종간의 데이터 교환을 위한 데이터 포맷
+        var user = {
+            'uid' : 'a101',
+            'name' : '홍길동',
+            'hp' : '010-1234-1111',
+            'pos' : '과장',
+            'dep' : 101
+        };
+
+        document.write('아이디: '+user.uid+'<br />');
+        document.write('이름: '+user.name+'<br />');
+        document.write('휴대폰 : '+user.hp+'<br />');
+        document.write('직급: '+user.pos+'<br />');
+        document.write('부서번호: '+user.dep+'<br />');
+
+
+    </script>
+
+
+</body>
+</html>

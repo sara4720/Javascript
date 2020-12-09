@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-2</title>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            // 전체선택자
+            $('*').css('color','blue');
+
+            // 태그선택자
+            $('h3').css('color', 'orange');
+
+            // 클래스선택자
+            $('.daejeon').css('color','green');
+
+            // 아이디선택자
+            $('#seoul').css('color','red');
+
+        });
+
+    </script>
+</head>
+<body>
+    <h3>6-2. JQuery 선택자</h3>
+    <ul>
+        <li id="seoul">서울</li>
+        <li class="daejeon">대전</li>
+        <li class="daegu">대구</li>
+        <li>부산</li>
+        <li>광주</li>
+    </ul>
+</body>
+</html>

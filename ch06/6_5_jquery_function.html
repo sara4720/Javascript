@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-5</title>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var tags = $('ul > li');
+            
+            console.log('전체 객체 갯수 : '+tags.length);
+
+            // eq() - 확장집합에서 특정 인덱스 객체 선택
+            tags.eq(1).css('color','green');
+            tags.eq(4).css('color', 'blue');
+
+            // first(), last()
+            tags.first().css('color','orange');
+            tags.last().css('color', 'orange');
+
+            // slice()
+            tags.slice(1,3).css('background','yellow');
+
+            // each() - 확장직합 개별 객체 갯수만큼 반복처리 함수
+            tags.each(function(){
+                // $(this) : 현재 실행중인 대상 객체
+                $(this).css('border','1px solid black');
+            });
+
+            // children() - 확장집합에서 특정 객체 자식 선택 
+            tags.eq(3).children().css('border', '1px dotted black');
+            var target = tags.eq(3).children().eq(1).children().eq(1);
+            target.css('color', 'aqua');
+
+            // next(), prev() - 확장집합의 특정객체의 다음, 이전 객체 선택
+            tags.first().next().css('color', 'green');
+            tags.last().prev().css('background','pink');
+
+            // parent()- 부모객체 선택
+            $('.haeundae').parent().parent().parent().prev().css('color', 'gold');
+            
+            // find() - 
+            tags.find('.haeundae').css('background', 'yellow');
+
+        });
+    </script>
+</head>
+<body>
+    <h3>6-5 JQuery 함수</h3>
+    <ul>
+        <li>서울</li>
+        <li>대전</li>
+        <li>대구</li>
+        <li>
+            <strong>부산</strong>
+            <ol>
+                <li>서면</li>
+                <li class="haeundae">해운대</li>
+                <li>동래</li>
+                <li>남포동</li>
+            </ol>
+        </li>
+        <li>광주</li>
+    </ul>
+</body>
+</html>
+</body>
+</html>

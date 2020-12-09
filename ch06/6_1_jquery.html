@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-1</title>
+    <style>
+        ul > li:first-child {
+            color: red;
+        }
+    </style>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script>
+        // 자바스크립트
+        // 브라우저가 해당문서의 모든 태그를 출력한 후
+        window.onload = function(){
+            alert('여기1');
+            var city = document.getElementById('city');
+            var li = city.getElementsByTagName('li');
+            li[1].style.color = 'green';
+        }
+
+        // 제이쿼리
+        $(function(){
+            $('ul > li:nth-child(3)').css('color', 'blue');
+        });
+
+    </script>
+</head>
+<body>
+    <h3>6-1 jQuery 기초</h3>
+    <ul id = "city">
+        <li>서울</li>
+        <li>대전</li>
+        <li>대구</li>
+        <li>부산</li>
+        <li>광주</li>
+    </ul>
+    <script>
+        // 여기1보다 먼저 출력
+        alert('여기2');
+    </script>
+</body>
+</html>

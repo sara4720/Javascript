@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6-4</title>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('ul > li:first-child').css('color','blue');
+            $('ul > li:nth-child(2)').css('color','orange');
+            $('ul:nth-of-type(1) > li:nth-child(4)').css('orange', 'yellow');
+            $('h4:eq(0)').css('color','red');
+            $('ul:eq(1) > li:eq(0)').css('background', 'orange');
+        });
+    </script>
+</head>
+<body>
+    <h3>6-4. JQuery 구조선택자</h3>
+    <h4>도시</h4>
+    <ul>
+        <li>서울</li>
+        <li>대전</li>
+        <li>대구</li>
+        <li>부산</li>
+        <li>광주</li>
+    </ul>
+    <h4>나라</h4>
+    <ul>
+        <li>한국</li>
+        <li>미국</li>
+        <li>영국</li>
+        <li>중국</li>
+        <li>호주</li>
+    </ul>
+</body>
+</html>
