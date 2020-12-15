@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9-5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $('button').click(function(){
+                $.ajax({
+                    url: 'http://localhost:8080/Ch07/7_5_xmlDatajsp.jsp',
+                    type: 'get',
+                    dataType: 'xml',
+                    success: function(data){
+                        var members = $(data).find('members');
+                        members.children().each(function(){
+                            var uid  = $(this).find('uid').text();
+                            var name = $(this).find('name').text();
+                            var hp   = $(this).children().eq(2).text();
+                            var pos  = $(this).children().eq(3).text();
+
+                            $('table').append('<tr></tr>');
+                            $('table').find('tr').last().append('<td>'+uid+'</td>');
+                            $('table').find('tr').last().append('<td>'+name+'</td>');
+                            $('table').find('tr').last().append('<td>'+hp+'</td>');
+                            $('table').find('tr').last().append('<td>'+pos+'</td>');
+
+
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>9-5. XML 데이터 가져오기</h3>
+    <button>데이터 출력</button>
+    <table border="1">
+        <tr>
+            <th>아이디</th>
+            <th>이름</th>
+            <th>휴대폰</th>
+            <th>직급</th>
+        </tr>
+    </table>
+</body>
+</html>

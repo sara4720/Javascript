@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9-1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+
+            var tdUid  = $('table tr:eq(0) > td:eq(1)');
+            var tdName = $('table tr:eq(1) > td:eq(1)');
+            var tdHp   = $('table tr:eq(2) > td:eq(1)');
+            var tdPos  = $('table tr:eq(3) > td:eq(1)');
+
+            $('button').click(function(){
+                $.ajax({
+                    url: 'http://localhost:8080/Ch07/7_1_JsonData.jsp',
+                    type: 'get',
+                    dataType: 'json',
+                    success: function(data){
+                        tdUid.text(data.uid);
+                        tdName.text(data.name);
+                        tdHp.text(data.hp);
+                        tdPos.text(data.pos);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>9-1 JQuery ajax(비동기 통신)</h3>
+    <button>데이터 요청하기</button>
+    <table border="1">
+        <tr>
+            <td>아이디</td>
+            <td>아이디 입력</td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td>이름 입력</td>
+        </tr>
+        <tr>
+            <td>휴대폰</td>
+            <td>휴대폰 입력</td>
+        </tr>
+        <tr>
+            <td>직급</td>
+            <td>직급 입력</td>
+        </tr>
+    </table>
+    
+
+</body>
+</html>

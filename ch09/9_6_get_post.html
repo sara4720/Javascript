@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9-6</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var btnGet  = $('button:eq(0)');
+            var btnPost = $('button:eq(1)');
+
+            btnGet.click(function(){
+                var url = 'http://localhost:8080/Ch07/7_2_jsonData.jsp';
+                $.get(url,function(data){
+                    alert(data[0].name);
+                });
+            });
+            btnPost.click(function(){
+                var url = 'http://localhost:8080/Ch07/7_3_JsonRecieve.jsp';
+                var jsonData = {'uid' : 'p101',
+                                'name': '홍길동',
+                                'hp'  : '010-1010-2020',
+                                'age' : '27'
+                            };
+                $.post(url,jsonData,function(data){
+                    if(data.result == 1){
+                        alert('데이터 입력 성공');
+                    }else{
+                        alert('데이터 입력 실패');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>9-6. GET, POST 함수</h3>
+    <button>Get</button>
+    <button>Post</button>
+</body>
+</html>

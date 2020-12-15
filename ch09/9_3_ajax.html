@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9-3</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var inputUid  = $('input[name=uid]');
+            var inputName = $('input[name=name]');
+            var inputHp   = $('input[name=hp]');
+            var inputAge  = $('input[name=age]');
+
+            $('button').click(function(){
+                // 입력필드 데이터 수집  
+                var uid  = inputUid.val();
+                var name = inputName.val();
+                var hp   = inputHp.val();
+                var age  = inputAge.val();
+
+                // 데이터를 JSON으로 생성
+                var jsonData = {
+                    'uid'  : uid,
+                    'name' : name,
+                    'hp'   : hp,
+                    'age'  : age,
+                };
+
+                // 서버로 JSON 전송
+                $.ajax({
+                    url:'http://localhost:8080/Ch07/7_3_JsonRecieve.jsp',
+                    type:'post',
+                    data: jsonData,
+                    dataType:'json',
+                    success: function(data){
+                        if(data.result == 1){
+                            alert("데이터 입력 완료");
+                        }else{
+                            alert("데이터 입력 실패");
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>9-3. ajax 데이터 전송</h3>
+    <table border="1">
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="uid"/></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="name"/></td>
+        </tr>
+        <tr>
+            <td>휴대폰</td>
+            <td><input type="text" name="hp"/></td>
+        </tr>
+        <tr>
+            <td>나이</td>
+            <td><input type="text" name="age"/></td>
+        </tr>
+    </table>
+    <button>전송하기</button>
+</body>
+</html>
